@@ -15,6 +15,7 @@ const {
   cancelToken,
   getMyHistory,
   getDailyStats,
+  getWaitingList,
 } = require("../controllers/queueController");
 
 const router = express.Router();
@@ -37,4 +38,5 @@ router.get("/history", requireStudent, getMyHistory);
 
 router.get("/stats", requireStaff, getDailyStats);
 
+router.get("/waiting", requireStaff, getWaitingList);
 module.exports = router;

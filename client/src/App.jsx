@@ -4,6 +4,7 @@ import { api } from "./services/api";
 import "./App.css";
 import TokenHistory from "./components/TokenHistory";
 import DailyStats from "./components/DailyStats";
+import WaitingList from "./components/WaitingList";
 function App() {
   const [mode, setMode] = useState("login");
   const [user, setUser] = useState(null);
@@ -137,6 +138,7 @@ function App() {
             <h1>Welcome, {user.name}</h1>
             <p>You are logged in as a {user.role}.</p>
             <QueuePanel key={user.id} user={user} />
+            {user.role === "staff" && <WaitingList key={user.id} />}
             {user.role === "staff" && <DailyStats key={user.id} />}
             {user.role === "student" && <TokenHistory key={user.id} />}
             <button disabled={busy} onClick={handleLogout}>

@@ -525,6 +525,57 @@ async function getDailyStats(req, res, next) {
     next(error);
   }
 }
+async function getWaitingList(req, res, next) {
+  const pageText = req.query.page ?? "1";
+
+  if (
+    typeof pageText !== "string" ||
+    !/^[1-9]\d*$/.test(pageText)
+  ) {
+    return res.status(400).json({
+      message: "Page must be a positive whole number.",
+    });
+  }
+
+  const page = Number(pageText);
+  const limit = 10;
+
+  if (!Number.isSafeInteger(page) || page > 10000) {
+    return res.status(400).json({
+      message: "Page number is too large.",
+    });
+  }
+
+  try {
+    const filter = {
+      counter: "main",
+      status: "Waiting",
+      active: true,
+    };
+
+    const total = await Token.countDocuments(filter);
+
+    const tokens = await Token.find(filter)
+      .sort({ serviceDate: 1, number: 1, _id: 1 })
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .populate("student", "name");
+
+    res.set("Cache-Control", "no-store");
+
+    res.json({
+      tokens: tokens.map((token) => ({
+        ...formatToken(token),
+        studentName: token.student?.name || "Unavailable",
+      })),
+      page,
+      total,
+      totalPages: Math.ceil(total / limit),
+    });
+  } catch (error) {
+    next(error);
+  }
+}
 module.exports = {
   getQueueStatus,
   setAdmission,
@@ -534,4 +585,5 @@ module.exports = {
   cancelToken,
   getMyHistory,
   getDailyStats,
+  getWaitingList,
 };
