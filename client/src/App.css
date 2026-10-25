@@ -1,0 +1,321 @@
+.app-shell {
+  min-height: 100vh;
+  padding: 32px 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #245c47;
+  color: white;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  margin: 64px auto 24px;
+  padding: 36px;
+  border: 1px solid #dce5db;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 12px 40px #18332f08;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #49705f;
+}
+
+h1 {
+  margin: 16px 0;
+  font-size: 30px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+fieldset {
+  padding: 0;
+  margin: 24px 0 0;
+  border: 0;
+  min-width: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid #adbfb4;
+  border-radius: 8px;
+  background: white;
+  color: #18332f;
+}
+
+button {
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-radius: 8px;
+  background: #245c47;
+  color: white;
+  font-weight: 600;
+}
+
+button:hover:not(:disabled) {
+  background: #194431;
+}
+
+.text-button {
+  margin-top: 14px;
+  background: transparent;
+  color: #245c47;
+}
+
+.text-button:hover:not(:disabled) {
+  background: #edf4ed;
+}
+
+.error {
+  color: #a12626;
+}
+
+.success {
+  color: #245c47;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    margin-top: 36px;
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+}
+.queue-panel {
+  margin: 24px 0;
+  padding-top: 20px;
+  border-top: 1px solid #dce5db;
+}
+
+.queue-panel h2 {
+  font-size: 21px;
+  margin: 0 0 16px;
+}
+
+.queue-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.queue-stats > div {
+  padding: 16px;
+  border-radius: 12px;
+  background: #f3f6f2;
+}
+
+.queue-stats span {
+  display: block;
+  font-size: 12px;
+  color: #49705f;
+}
+
+.queue-stats strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+.queue-note {
+  font-size: 13px;
+  color: #49705f;
+}
+.student-queue {
+  margin: 24px 0;
+}
+
+.queue-panel .token-number {
+  margin: 12px 0;
+  font-size: 48px;
+  color: #245c47;
+}
+.staff-controls {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #dce5db;
+}
+.token-history {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #dce5df;
+}
+
+.token-history h2 {
+  margin-top: 0;
+  font-size: 21px;
+}
+
+.token-history > p {
+  font-size: 14px;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5ebe6;
+}
+
+.history-item strong {
+  display: block;
+  font-size: 20px;
+}
+
+.history-item div span {
+  display: block;
+  margin-top: 5px;
+  color: #52675f;
+  font-size: 13px;
+}
+
+.history-status {
+  background: #edf3ee;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.history-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.history-pagination button {
+  width: auto;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.history-pagination > span {
+  font-size: 12px;
+  text-align: center;
+}
+
+.token-history {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #dce5df;
+}
+
+.token-history h2 {
+  margin-top: 0;
+  font-size: 21px;
+}
+
+.token-history > p {
+  font-size: 14px;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5ebe6;
+}
+
+.history-item strong {
+  display: block;
+  font-size: 20px;
+}
+
+.history-item div span {
+  display: block;
+  margin-top: 5px;
+  color: #52675f;
+  font-size: 13px;
+}
+
+.history-status {
+  background: #edf3ee;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.history-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.history-pagination button {
+  width: auto;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.history-pagination > span {
+  font-size: 12px;
+  text-align: center;
+}
+
+.daily-summary {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #dce5df;
+}
+
+.daily-summary h2 {
+  margin-top: 0;
+  font-size: 21px;
+}
