@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const path = require("path");
 const mongoose = require("mongoose");
 const User = require("./models/User");
 const Counter = require("./models/Counter");
@@ -104,6 +105,23 @@ console.log("Queue models and counter are ready");
 
     app.use("/api/auth", require("./routes/authRoutes"));
     app.use("/api/queue", require("./routes/queueRoutes"));
+    // Return JSON for unknown API routes.
+app.use("/api", (req, res) => {
+  res.status(404).json({
+    message: "API route not found.",
+  });
+});
+
+// Serve the built React website.
+const clientDist = path.join(__dirname, "../client/dist");
+
+app.use(express.static(clientDist));
+
+app.get("/", (req, res, next) => {
+  res.sendFile(path.join(clientDist, "index.html"), (error) => {
+    if (error) next(error);
+  });
+});
 
     app.use((err, req, res, next) => {
       console.error("Request failed:", err.name);
