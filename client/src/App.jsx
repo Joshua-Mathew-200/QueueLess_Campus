@@ -35,8 +35,36 @@ function App() {
   }
 
   useEffect(() => {
-    checkSession();
-  }, []);
+  let cancelled = false;
+
+  async function loadSession() {
+    try {
+      const data = await api("/auth/me");
+
+      if (!cancelled) {
+        setUser(data.user);
+      }
+    } catch (err) {
+      if (!cancelled) {
+        setUser(null);
+
+        if (err.status !== 401) {
+          setError("Could not connect to the server. Please try again.");
+        }
+      }
+    } finally {
+      if (!cancelled) {
+        setChecking(false);
+      }
+    }
+  }
+
+  loadSession();
+
+  return () => {
+    cancelled = true;
+  };
+}, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
